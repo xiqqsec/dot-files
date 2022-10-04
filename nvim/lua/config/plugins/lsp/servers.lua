@@ -1,5 +1,3 @@
-local lsp = require('lspconfig')
-
 ---Common perf related flags for all the LSP servers
 local flags = {
     allow_incremental_sync = true,
@@ -22,9 +20,9 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  --vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   --vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  --vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   --vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -55,4 +53,8 @@ require('lspconfig')['rust_analyzer'].setup{
             },
         }
     }
+}
+
+require('lspconfig')['clangd'].setup {
+    on_attach = on_attach
 }
