@@ -40,6 +40,9 @@ Plug 'nvim-lua/plenary.nvim'
 -- Vim plugin for generating images of source code using
 Plug 'segeljakt/vim-silicon'
 
+-- Vim plugin for git
+Plug 'tanvirtin/vgit.nvim'
+
 vim.call('plug#end')
 
 require('config/plugins/vim-silicon')
@@ -48,3 +51,4 @@ require('config/plugins/nightfox')
 require('config/plugins/nvim-cmp')
 require('config/plugins/lsp/servers')
 require('config/plugins/rust-tools')
+require('config/plugins/vgit')
